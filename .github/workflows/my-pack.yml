@@ -1,4 +1,4 @@
-name: my-pack
+name: .NET
 
 on:
   push:
@@ -21,11 +21,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-#     - name: Test
-#       run: dotnet test --no-build --verbosity normal
+    # - name: Test
+    #   run: dotnet test --no-build --verbosity normal
     - name: Pack 
       run: |
         cd Octokit
         dotnet pack -c Release -o ./dist/ -p:version=0.50.1
         dotnet nuget add source --username jxnkwlp --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/jxnkwlp/index.json"
-        dotnet nuget push "./dist/Octokit.0.50.1.nupkg"  --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+        dotnet nuget push "./dist/Octokit.0.50.1.nupkg" --source "github"
