@@ -33,9 +33,9 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         # Artifact name
-        name: # optional, default is artifact
+        # name: # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: ${{ github.workspace }}
+        path: ${{ github.workspace }}/Octokit/dist/**.nupkg 
 
     # - name: Pack 
     #   run: |
