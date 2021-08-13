@@ -28,4 +28,4 @@ jobs:
         cd Octokit
         dotnet pack -c Release -o ./dist/ -p:version=0.50.1
         dotnet nuget add source --username jxnkwlp --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/jxnkwlp/index.json"
-        dotnet nuget push "./dist/Octokit.0.50.1.nupkg"  --api-key ${{ secrets.PAT_NUGET }} --source "github"
+        dotnet nuget push "./dist/Octokit.0.50.1.nupkg"  --api-key ${{ PAT_NUGET }} --source "github"
